@@ -52,6 +52,8 @@
                             </form>
                             <a style="margin-top: 10px" class="btn btn-warning"
                                 href="{{ route('book.edit', $item->id) }}">Edit</a>
+                            <a style="margin-top: 10px" class="btn btn-info"
+                                href="{{ route('book.show', $item->id) }}">Show</a>
                         </td>
 
                     </tr>

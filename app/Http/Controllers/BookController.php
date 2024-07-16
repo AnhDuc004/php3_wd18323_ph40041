@@ -47,6 +47,14 @@ class BookController extends Controller
         return redirect()->route('book.index');
     }
 
+    public function show($id)
+    {
+        $book = DB::table('books')->where('id', $id)->first();
+
+        $categories = DB::table('categories')->get();
+        return view(self::PATH_VIEW . __FUNCTION__, compact('book', 'categories'));
+    }
+
     public function edit($id)
     {
         $book = DB::table('books')->where('id', $id)->first();

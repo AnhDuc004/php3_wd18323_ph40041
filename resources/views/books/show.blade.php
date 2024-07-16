@@ -12,51 +12,55 @@
 <body>
     <div class="container">
         <h1>Update Book</h1>
-        <form action="{{ route('book.update', $book->id) }}" method="POST">
+        <form action="{{ route('book.show', $book->id) }}" method="POST">
             @csrf
             @method('put')
             <input type="hidden" name="id" value="{{ $book->id }}">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" name="title" id="title" value="{{ $book->title }}">
+                <input disabled type="text" class="form-control" name="title" id="title"
+                    value="{{ $book->title }}">
             </div>
             {{--  --}}
             <div class="mb-3">
                 <label for="thumbnail" class="form-label">URL Thumbnail</label>
-                <input type="text" class="form-control" name="thumbnail" value="{{ $book->thumbnail }}"
+                <input disabled type="text" class="form-control" name="thumbnail" value="{{ $book->thumbnail }}"
                     id="thumbnail">
             </div>
             {{--  --}}
             <div class="mb-3">
                 <label for="author" class="form-label">Author</label>
-                <input type="text" class="form-control" value="{{ $book->author }}" name="author" id="author">
+                <input disabled type="text" class="form-control" value="{{ $book->author }}" name="author"
+                    id="author">
             </div>
             {{--  --}}
             <div class="mb-3">
                 <label for="publisher" class="form-label">Publisher</label>
-                <input type="text" class="form-control" value="{{ $book->publisher }}" name="publisher"
+                <input disabled type="text" class="form-control" value="{{ $book->publisher }}" name="publisher"
                     id="publisher">
             </div>
             {{--  --}}
             <div class="mb-3">
                 <label for="publication" class="form-label">Publication</label>
-                <input type="date" class="form-control" value="{{ $book->publication }}" name="publication"
+                <input disabled type="date" class="form-control" value="{{ $book->publication }}" name="publication"
                     id="publication">
             </div>
             {{--  --}}
             <div class="mb-3">
                 <label for="price" class="form-label">price</label>
-                <input type="number" class="form-control" value="{{ $book->price }}" name="price" id="price">
+                <input disabled type="number" class="form-control" value="{{ $book->price }}" name="price"
+                    id="price">
             </div>
             {{--  --}}
             <div class="mb-3">
                 <label for="quantity" class="form-label">Quantity</label>
-                <input type="number" class="form-control" value="{{ $book->quantity }}" name="quantity" id="quantity">
+                <input disabled type="number" class="form-control" value="{{ $book->quantity }}" name="quantity"
+                    id="quantity">
             </div>
             {{--  --}}
             <div class="mb-3">
                 <label for="quantity" class="form-label">Category name</label>
-                <select class="form-select" name="category_id" id="category_id">
+                <select class="form-select" name="category_id" id="category_id" disabled>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}" @if ($category->id == $book->category_id) selected @endif>
                             {{ $category->name }}</option>
@@ -65,9 +69,9 @@
             </div>
             {{--  --}}
             <div class="mb-3">
-                <button type="submit" class="btn btn-info">Submit</button>
+
                 <a class='btn btn-success' href="{{ route('book.index') }}">Back</a>
-                </select>
+
             </div>
             {{--  --}}
 
